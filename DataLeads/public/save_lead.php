@@ -8,10 +8,8 @@ $no_wa = $_POST['no_wa'];
 $nama_lead = $_POST['nama_lead'];
 $kota = $_POST['kota'];
 
-// Check if lead already exists
 $id_leads = $_POST['id_leads'] ?? null;
 if ($id_leads) {
-    // Update existing lead
     $query = "
         UPDATE leads 
         SET tanggal = '$tanggal', id_sales = '$sales', id_produk = '$produk', no_wa = '$no_wa', nama_lead = '$nama_lead', kota = '$kota' 
@@ -23,7 +21,6 @@ if ($id_leads) {
         echo "Error: " . $query . "<br>" . $mysqli->error;
     }
 } else {
-    // Insert new lead
     $query = "
         INSERT INTO leads (tanggal, id_sales, id_produk, no_wa, nama_lead, kota) 
         VALUES ('$tanggal', '$sales', '$produk', '$no_wa', '$nama_lead', '$kota')
